@@ -8,7 +8,7 @@ This is a source code for Grace website blog content.
 
 ![Result](/src/asset/images/to-do-list.png)
 
-## Getting Start
+## Getting Started
 
 1. `npm install`
 2. `npm start`
