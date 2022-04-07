@@ -2,29 +2,23 @@ import React, { useContext, useState } from 'react';
 import { ToDoContext } from '../contexts/ToDoContext';
 
 const TodoForm = () => {
-	const [todos, setTodos] = useContext(ToDoContext);
+	const { addItem } = useContext(ToDoContext);
 
 	const [item, setItem] = useState('');
 
-	const updateItem = (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
-		setItem(e.target.value);
-	};
-
-	const addItem = (e) => {
-		e.preventDefault();
-		setTodos((todos) => [...todos, { item, id: todos.length + 1 }]);
+		addItem(item);
 		setItem('');
 	};
 
 	return (
-		<form onSubmit={addItem}>
+		<form onSubmit={handleSubmit}>
 			<input
 				className='todo-input'
 				type='text'
-				name='item'
 				value={item}
-				onChange={updateItem}
+				onChange={(e) => setItem(e.target.value)}
 			/>
 			<button className='btn'>ADD</button>
 		</form>

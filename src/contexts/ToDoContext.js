@@ -9,8 +9,16 @@ export const ToDoProvider = (props) => {
 		{ id: 3, item: 'reading a book' },
 	]);
 
+	const addItem = (item) => {
+		setTodos([...todos, { item, id: todos.length + 1 }]);
+	};
+
+	const deleteItem = (id) => {
+		setTodos(todos.filter((item) => item.id !== id));
+	};
+
 	return (
-		<ToDoContext.Provider value={[todos, setTodos]}>
+		<ToDoContext.Provider value={{ todos, addItem, deleteItem }}>
 			{props.children}
 		</ToDoContext.Provider>
 	);

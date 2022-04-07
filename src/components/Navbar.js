@@ -2,9 +2,7 @@ import React, { useContext } from 'react';
 import { ToDoContext } from '../contexts/ToDoContext';
 
 const Navbar = () => {
-	const [todos, setTodos] = useContext(ToDoContext);
-
-	console.log(todos);
+	const { todos } = useContext(ToDoContext);
 
 	return (
 		<nav className='navbar'>

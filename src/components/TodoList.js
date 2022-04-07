@@ -2,12 +2,7 @@ import React, { useContext } from 'react';
 import { ToDoContext } from '../contexts/ToDoContext';
 
 const TodoList = () => {
-	const [todos, setTodos] = useContext(ToDoContext);
-
-	const deleteItem = (id) => {
-		const newTodos = todos.filter((item) => item.id !== id);
-		setTodos(newTodos);
-	};
+	const { todos, deleteItem } = useContext(ToDoContext);
 
 	return (
 		<ul className='todo-list'>
